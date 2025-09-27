@@ -1,0 +1,81 @@
+:root {
+  --primary-color: #FEE500;
+  --background-color: #9bb2c5; /* 카카오톡 채팅 배경 톤 */
+  --component-color: #ffffff;
+  --text-primary-color: #191919;
+  --text-secondary-color: #8b8b8b;
+  --action-color: #45332E;
+  --mobile-width: 360px; /* 모바일 고정 폭 */
+  --bubble-radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  /* 앱 전체 배경은 모바일 배경(#9bb2c5)과 같은 계열의 더 밝은 톤 */
+  background: #c8d4e0;
+  color: var(--text-primary-color);
+  font-family: "Apple SD Gothic Neo", "Noto Sans CJK KR", sans-serif;
+}
+
+/* 폰트/색상 상속을 강제하여 폼 요소에도 일관 적용 */
+body, button, input, textarea, select {
+  font-family: "Apple SD Gothic Neo", "Noto Sans CJK KR", sans-serif;
+  color: var(--text-primary-color);
+}
+
+::placeholder {
+  color: var(--text-secondary-color);
+}
+
+/* 채팅 레이아웃이 전체 높이를 잘 차지하도록 보조 */
+html, body, #__next { height: 100%; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+.mobile-frame {
+  width: var(--mobile-width);
+  margin: 0 auto;
+  border: 1px solid #b7c4d0; /* 양옆 경계 표시(동일 계열 톤) */
+  border-radius: 0; /* 하단 라운드 제거, 전체 각지게 유지 */
+  overflow: hidden;
+  background: var(--background-color);
+  box-shadow: none;
+  height: 100vh;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0; /* 채팅 화면을 레퍼런스처럼 가장자리까지 맞춤 */
+  height: 100%; /* 입력 바를 프레임 최하단에 고정하기 위해 전체 높이 채움 */
+}
+
+.page-title {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.empty-caption {
+  font-size: 12px;
+  color: var(--text-secondary-color);
+}
+
+/* Focus ring 공통 스타일 (a11y) */
+:focus-visible {
+  outline: 2px solid #2b6cb0;
+  outline-offset: 2px;
+}

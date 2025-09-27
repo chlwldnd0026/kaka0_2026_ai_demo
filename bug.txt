@@ -1,0 +1,109 @@
+PS C:\Users\user\kakao_demo> npm run dev
+
+> kakao_demo@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.3
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+It looks like you're trying to use TypeScript but do not have the required package(s) installed.
+Installing dependencies
+
+If you are not trying to use TypeScript, please remove the tsconfig.json file from your package root (and any TypeScript files in your pages directory).
+
+
+Installing devDependencies (npm):
+- typescript
+- @types/react
+- @types/node
+
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+
+added 360 packages, and audited 361 packages in 31s
+
+145 packages are looking for funding
+  run `npm fund` for details
+
+1 critical severity vulnerability
+
+To address all issues, run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+
+   We detected TypeScript in your project and reconfigured your tsconfig.json file for you. Strict-mode is set to false by default.
+   The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+
+        - include was updated to add '.next/types/**/*.ts'
+
+ ✓ Ready in 35.7s
+ ○ Compiling / ...
+ ✓ Compiled / in 3s (571 modules)
+ GET / 200 in 3208ms
+ ⨯ ./src/app/browse/page.tsx
+Error:
+  × Unexpected token `div`. Expected jsx identifier
+     ╭─[C:\Users\user\kakao_demo\src\app\browse\page.tsx:94:1]
+  94 │   }
+  95 │
+  96 │   return (
+  97 │     <div>
+     ·      ───
+  98 │       <Title>템플릿 찾아보기</Title>
+  99 │       <Controls>
+ 100 │         <Input
+     ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/browse/page.tsx
+ ⨯ ./src/app/browse/page.tsx
+Error:
+  × Unexpected token `div`. Expected jsx identifier
+     ╭─[C:\Users\user\kakao_demo\src\app\browse\page.tsx:94:1]
+  94 │   }
+  95 │
+  96 │   return (
+  97 │     <div>
+     ·      ───
+  98 │       <Title>템플릿 찾아보기</Title>
+  99 │       <Controls>
+ 100 │         <Input
+     ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/browse/page.tsx
+ ○ Compiling /_not-found ...
+ ⨯ ./src/app/browse/page.tsx
+Error:
+  × Unexpected token `div`. Expected jsx identifier
+     ╭─[C:\Users\user\kakao_demo\src\app\browse\page.tsx:94:1]
+  94 │   }
+  95 │
+  96 │   return (
+  97 │     <div>
+     ·      ───
+  98 │       <Title>템플릿 찾아보기</Title>
+  99 │       <Controls>
+ 100 │         <Input
+     ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/browse/page.tsx
+ GET /browse 500 in 43ms
+ GET / 500 in 11ms
