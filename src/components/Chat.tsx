@@ -139,7 +139,7 @@ const AITextButton = styled(IconCircle)`
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.4px;
-  padding: 0; /* 고정 원형 크기에 맞춰 텍스트만 중앙 정렬 */
+  padding: 0;
 `
 
 const AvatarImg = styled.img`
@@ -161,7 +161,6 @@ export default function Chat() {
   const [active, setActive] = useState<Kanana | null>(null)
   const [mounted, setMounted] = useState(false)
 
-  // 활성 카나나 변경 이벤트 구독 + 초기 동기화
   useEffect(() => {
     const update = () => setActive(getActiveKanana())
     window.addEventListener('kanana:active-changed', update)
@@ -169,7 +168,6 @@ export default function Chat() {
     return () => window.removeEventListener('kanana:active-changed', update)
   }, [])
 
-  // 활성 카나나가 있을 때: 초기 메시지 없이 Gemini 응답만 표시
   useEffect(() => {
     if (active) {
       setMessages([])
@@ -188,7 +186,7 @@ export default function Chat() {
     }
   }, [active])
 
-  // 기본 안내(활성 카나나 없을 때만)
+  // 기본 안내(활성 카나나 없을 때만 표시)
   useEffect(() => {
     if (active) return
     if (messages.length > 0) return
@@ -198,9 +196,9 @@ export default function Chat() {
       return `${ampm} ${h12}:${mm}`
     }
     setMessages([
-      { me: true, time: now(), text: "이 데모는 '나만의 카나나'를 구현했습니다. 사용자는 나만의 카나나를 만들고, 다른 사람들이 만든 카나나를 '카나나 플래닛'에서 추가할 수 있습니다." },
-      { me: true, time: now(), text: '하단 AI 버튼 → 카나나 관리에서 나만의 카나나 추가/선택/삭제/해제를 할 수 있어요. 카나나 플래닛에서 나만의 카나나를 추가하세요.' },
-      { me: true, time: now(), text: '현재 이 데모는 카나나들을 Gemini API로 구현한 상태이며, 일시적인 네트워크 불안정 또는 사용 제한이 발생할 수 있어요. 응답이 없으면 잠시 뒤, 페이지를 새로고침 하여 다시 시도 해주세요.' },
+      { me: true, time: now(), text: "<데모 설명>\n이 데모는 '나만의 카나나'를 구현했습니다. 사용자는 나만의 카나나를 만들고, 다른 사람들이 만든 카나나를 '카나나 플래닛'에서 추가할 수 있습니다." },
+      { me: true, time: now(), text: "<체험 방식>\n하단 AI 버튼 → 카나나 관리에서 나만의 카나나 추가/선택/삭제/해제를 할 수 있어요. 카나나 플래닛에서 나만의 카나나를 추가하세요." },
+      { me: true, time: now(), text: "<주의 사항>\n현재 이 데모는 카나나들을 Gemini API로 구현한 상태이며, 일시적인 네트워크 불안정 또는 사용 제한이 발생할 수 있어요. 응답이 없으면 잠시 뒤, 페이지를 새로고침 하여 다시 시도 해주세요." },
     ])
   }, [active, messages.length])
 
@@ -319,3 +317,4 @@ export default function Chat() {
     </>
   )
 }
+
